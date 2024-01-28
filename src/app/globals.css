@@ -44,3 +44,16 @@ img.home {
   margin: 0 auto; /* Center the image horizontally */
   max-width: 80%; /* Adjust image size as needed */
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+form button {
+  margin-top: 1rem;
+  background-color: aquamarine;
+  border-radius: 45%;
+  border: none;
+  padding: 1rem;
+}
