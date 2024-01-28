@@ -16,8 +16,8 @@ export default async function CocktailList() {
         <ul className="detailOrg">
           {cocktails.drinks.map((cocktail) => (
             <div className="sidebyside" key={cocktail.idDrink}>
-              <li>{cocktail.strDrink}</li>
-              <img src={cocktail.strDrinkThumb} />
+              <li className="grow">{cocktail.strDrink}</li>
+              <img className="thumb" src={cocktail.strDrinkThumb} />
             </div>
           ))}
         </ul>

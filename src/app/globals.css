@@ -2,9 +2,6 @@ nav {
   display: flex;
   gap: 2rem;
 }
-img {
-  max-width: 200px;
-}
 .detailOrg {
   display: flex;
   flex-direction: column;
@@ -14,5 +11,21 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 400px;
+  max-width: 550px;
+}
+.thumb {
+  max-width: 250px;
+  flex-wrap: wrap;
+}
+img.home {
+  margin-left: 20px; /* Center the image horizontally */
+  display: flex; /* Ensure image takes full width */
+}
+.home-container {
+  /* Added styles for the container */
+  display: flex;
+  justify-content: flex-start;
+}
+.grow {
+  font-size: 2rem;
 }
