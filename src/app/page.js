@@ -11,9 +11,10 @@ export default function Home() {
         Click <Link href="/posts">here </Link>to find our weekly suggestions
       </p>
       <p>
-        Want to add your own recipe? Click here to feature on our{" "}
-        <Link href="/contributions">"Your Contributions"</Link> page
+        Want to add your own recipe?{" "}
+        <Link href="/submitCocktail">Click here </Link>
       </p>
+
       <Image
         src={homeBar}
         alt="an example home bar setup"

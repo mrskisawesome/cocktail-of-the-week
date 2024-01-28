@@ -1,25 +1,28 @@
 import { format } from "date-fns";
+import Link from "next/link";
 export const metadata = {
   title: "Cocktail List",
   description: "List of all our published cocktails",
 };
-export default async function CocktailList() {
+export default async function CocktailList({ searchParams }) {
   const response = await fetch(
     "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka"
   ); // call the API
   const cocktails = await response.json(); // parse the response as JSON
   const drinkIds = cocktails.drinks.map((cocktail) => cocktail.idDrink);
+  if (searchParams.sort) {
+    cocktails.reverse();
+  }
 
   return (
     <>
-      <div>
+      <div className="top">
         <h1>Weekly cocktail</h1>
 
         <ul className="detailOrg">
-          {cocktails.drinks.map((cocktail) => (
+          {cocktails.drinks.map((cocktail, index) => (
             <div className="sidebyside" key={cocktail.idDrink}>
               <li className="grow">{cocktail.strDrink}</li>
-              <img className="thumb" src={cocktail.strDrinkThumb} />
               <p className="date">
                 {index === 0
                   ? format(new Date(), "MMMM d, yyyy", { weekStartsOn: 1 })
@@ -32,6 +35,7 @@ export default async function CocktailList() {
                     )}
                 {index > 0 && ` (Week ${index})`}
               </p>
+              <img className="thumb" src={cocktail.strDrinkThumb} />
             </div>
           ))}
         </ul>

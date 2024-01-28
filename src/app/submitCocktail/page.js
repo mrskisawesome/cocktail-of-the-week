@@ -1,5 +1,9 @@
 export default function submitCocktail() {
-  <div>
-    <h2>blah blah blah</h2>
-  </div>;
+  return (
+    <>
+      <div>
+        <h2>Submit your Recipe here</h2>
+      </div>
+    </>
+  );
 }

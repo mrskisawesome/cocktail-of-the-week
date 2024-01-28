@@ -1,5 +1,14 @@
+body {
+  background-color: #b3d6c6;
+  display: flex; /* Make the body a flex container to center content */
+  flex-direction: column;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  min-height: 100vh; /* Ensure content is centered even if viewport is taller */
+}
 nav {
   display: flex;
+
   gap: 2rem;
 }
 .detailOrg {
@@ -10,23 +19,28 @@ nav {
 .sidebyside {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  max-width: 550px;
+  justify-content: space-evenly;
+  max-width: 600px;
+  gap: 10px;
 }
 .thumb {
   max-width: 250px;
   flex-wrap: wrap;
 }
-img.home {
-  margin-left: 20px; /* Center the image horizontally */
-  display: flex; /* Ensure image takes full width */
-}
+
 .home-container {
-  /* Added styles for the container */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center; /* Align content to the center within the container */
+  max-width: 50vw;
+  padding: 20px; /* Add some padding around the content */
 }
+
 .grow {
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+img.home {
+  margin: 0 auto; /* Center the image horizontally */
+  max-width: 80%; /* Adjust image size as needed */
 }
