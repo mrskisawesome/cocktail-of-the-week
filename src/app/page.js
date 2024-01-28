@@ -1,11 +1,19 @@
 import Image from "next/image";
 import homeBar from "@/../public/homebar.webp";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="home-container">
       <h2>Home</h2>
-      <p>Welcome to your weekly dose of At Home Cocktail inspo</p>
+      <p>Welcome to your weekly dose of At Home Cocktail inspo.</p>
+      <p>
+        Click <Link href="/posts">here </Link>to find our weekly suggestions
+      </p>
+      <p>
+        Want to add your own recipe? Click here to feature on our{" "}
+        <Link href="/contributions">"Your Contributions"</Link> page
+      </p>
       <Image
         src={homeBar}
         alt="an example home bar setup"

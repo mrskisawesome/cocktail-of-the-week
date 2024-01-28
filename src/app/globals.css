@@ -24,6 +24,7 @@ img.home {
 .home-container {
   /* Added styles for the container */
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 }
 .grow {
