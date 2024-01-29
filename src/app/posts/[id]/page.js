@@ -1,4 +1,4 @@
-//import Link from "next/link";
+import Link from "next/link";
 export const metadata = {
   title: "More details",
   description: "All the details for your chosen cocktail",
@@ -61,6 +61,9 @@ export default async function SinglePostPage({ params }) {
                 <h3>Glass</h3>
                 <p>{detail.strGlass}</p>
               </div>
+              <nav>
+                <Link href="/posts">Return to Cocktail List</Link>
+              </nav>
             </div>
           ))}
           ;
