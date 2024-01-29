@@ -11,15 +11,15 @@ nav {
 
   gap: 2rem;
 }
-.detailOrg {
+/* .detailOrg {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
+} */
 .sidebyside {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
   max-width: 600px;
   gap: 10px;
 }
@@ -56,4 +56,20 @@ form button {
   border-radius: 45%;
   border: none;
   padding: 1rem;
+}
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add some space between each section */
+  align-items: center; /* Align content to the center horizontally */
+}
+.ingredients-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px; /* Align content to the center horizontally */ /* Add some space between each ingredient */
+}
+.top {
+  display: flex;
+  align-items: center;
 }

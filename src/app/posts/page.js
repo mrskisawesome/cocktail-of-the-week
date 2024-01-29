@@ -9,17 +9,17 @@ export default async function CocktailList({ searchParams }) {
     "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka"
   ); // call the API
   const cocktails = await response.json(); // parse the response as JSON
-  const drinkIds = cocktails.drinks.map((cocktail) => cocktail.idDrink);
+
   if (searchParams.sort) {
     cocktails.reverse();
   }
 
   return (
     <>
-      <div className="top">
-        <h1>Weekly cocktail</h1>
+      <div>
+        <h1 className="top">Weekly cocktail</h1>
 
-        <ul className="detailOrg">
+        <ul className="detail-container">
           {cocktails.drinks.map((cocktail, index) => (
             <div className="sidebyside" key={cocktail.idDrink}>
               <li className="grow">{cocktail.strDrink}</li>
@@ -35,7 +35,11 @@ export default async function CocktailList({ searchParams }) {
                     )}
                 {index > 0 && ` (Week ${index})`}
               </p>
+
               <img className="thumb" src={cocktail.strDrinkThumb} />
+              <Link href={`/posts/${cocktail.idDrink}`}>
+                Click here for more details
+              </Link>
             </div>
           ))}
         </ul>
