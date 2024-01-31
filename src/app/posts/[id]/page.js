@@ -1,13 +1,29 @@
 import Link from "next/link";
+import { sql } from "@vercel/postgres";
+import { revalidatePath } from "next/cache";
+
 export const metadata = {
   title: "More details",
   description: "All the details for your chosen cocktail",
 };
+
 export default async function SinglePostPage({ params }) {
   const response = await fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${params.id}`
   ); // call the API
   const details = await response.json(); // parse the response as JSON - called it details so clear it is different to previous page
+  const comments =
+    await sql`SELECT * FROM comments WHERE post_id = ${params.id}`;
+
+  async function handleAddComment(formData) {
+    "use server";
+    const username = formData.get("username");
+    const content = formData.get("content");
+
+    await sql`INSERT INTO comments (username,content, post_id) VALUES (${username}, ${content}, ${params.id})`;
+    revalidatePath(`/posts/${params.id}`);
+  }
+
   return (
     <>
       <div className="detail-container">
@@ -61,6 +77,20 @@ export default async function SinglePostPage({ params }) {
                 <h3>Glass</h3>
                 <p>{detail.strGlass}</p>
               </div>
+              <form action={handleAddComment}>
+                <h3>Add a comment</h3>
+                <input name="username" placeholder="Username" />
+                <textarea name="content" placeholder="Comment"></textarea>
+                <button>Submit</button>
+              </form>
+              {comments.rows.map((comment) => {
+                return (
+                  <div key={comment.username}>
+                    <h3>{comment.username}</h3>
+                    <p>{comment.content}</p>
+                  </div>
+                );
+              })}
               <nav>
                 <Link href="/posts">Return to Cocktail List</Link>
               </nav>

@@ -17,7 +17,7 @@ export default async function CocktailList({ searchParams }) {
   return (
     <>
       <div>
-        <h1 className="top">Weekly cocktail</h1>
+        <h1>Weekly cocktail</h1>
 
         <ul className="detail-container">
           {cocktails.drinks.map((cocktail, index) => (
